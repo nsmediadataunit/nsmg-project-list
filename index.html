@@ -27,19 +27,20 @@
 
     <body>
         <script>
+            let nStart = 10;
             let n = 150;
 
             window.onload = function() {
                 let container = document.body;
 
-                for (let i = 0; i < n; i++) {
+                for (let i = nStart; i <= n; i++) {
                     let link = "https://nsmg-projects-public.s3.eu-west-2.amazonaws.com/live/nsmg-" + (""+i).padStart(3, '0') + "/index.html";
                     let divTag = document.createElement("div");
 
-                    let pTag = document.createElement("p");
-                    pTag.innerHTML = "nsmg-" + (i+1);
-                    pTag.href = link;
-                    divTag.appendChild(pTag);
+                    let aTag = document.createElement("a");
+                    aTag.innerHTML = "nsmg-" + i;
+                    aTag.href = link;
+                    divTag.appendChild(aTag);
 
                     let iframe = document.createElement("iframe");
                     iframe.src = link;
